@@ -1,7 +1,6 @@
 package org.example.apiendpoints.Service;
 
 import org.example.apiendpoints.Modals.Student;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,5 +21,20 @@ public class StudentService { ;
 
     public Student GetStudent(String rollNo) {
         return students.get(Integer.parseInt(rollNo)-1);
+    }
+
+    public void AddStudent(Student student) {
+        students.add(student);
+    }
+
+    public void UpdateStudent(Student student) {
+        int index = 0;
+        for (int i = 0; i < students.size(); i++) {
+            if(student.getRollNo() == students.get(i).getRollNo()) {
+                index = i;
+                break;
+            }
+        }
+        students.set(index, student);
     }
 }
