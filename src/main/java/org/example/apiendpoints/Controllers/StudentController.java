@@ -39,4 +39,12 @@ public class StudentController {
         StudentService.UpdateStudent(student);
         return "Success";
     }
+
+    @DeleteMapping("/student/{RollNo}")
+    public String DeleteStudent(@PathVariable int RollNo) {
+        StudentService.deleteStudent(RollNo);
+        return "Success";
+    }
+
+
 }
